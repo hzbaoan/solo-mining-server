@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  solo-mining-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: solo-mining-server:umbrel
+    container_name: solo-mining-server
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+      - "7152:7152"
+    volumes:
+      - ./config.json:/etc/solo-mining-server/config.json:ro
+    networks:
+      - umbrel_main_network
+
+networks:
+  umbrel_main_network:
+    external: true
+    name: umbrel_main_network
