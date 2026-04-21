@@ -1,0 +1,50 @@
+{
+  "process": {
+    "file_limit": 65535,
+    "core_limit": 0
+  },
+  "log": {
+    "path": "./log/solo_stratum.log",
+    "flag": "fatal,error,warn,info,vip"
+  },
+  "stratum": {
+    "bind": [
+      "tcp@0.0.0.0:3333"
+    ],
+    "max_pkg_size": 10240,
+    "buf_limit": 1048576
+  },
+  "bitcoind": {
+    "host": "127.0.0.1",
+    "port": 8332,
+    "rpcuser": "REPLACE_WITH_YOUR_RPC_USER",
+    "rpcpassword": "REPLACE_WITH_YOUR_RPC_PASSWORD",
+    "zmq_block_urls": [],
+    "p2p_fast_peer": ""
+  },
+  "network": {
+    "name": "mainnet"
+  },
+  "coinbase": {
+    "address": "REPLACE_WITH_YOUR_MAINNET_PAYOUT_ADDRESS",
+    "message": "solo",
+    "worker_tag": false,
+    "segwit_commitment": true
+  },
+  "difficulty": {
+    "min": 1024,
+    "max": 262144,
+    "default": 8192,
+    "target_time": 5,
+    "retarget_time": 90
+  },
+  "runtime": {
+    "client_max_idle_time": 3600,
+    "extra_nonce2_size": 8,
+    "keep_old_jobs": 6
+  },
+  "api": {
+    "listen_addr": "0.0.0.0",
+    "listen_port": 7152
+  }
+}
